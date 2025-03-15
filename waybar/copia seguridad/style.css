@@ -1,0 +1,146 @@
+* {
+    /* Especifica la fuente predeterminada de GNOME */
+    font-family: "Sans", sans-serif;
+    font-size: 11px;
+    min-height: 12px;
+    font-weight: bold;
+}
+
+
+window#waybar {
+    /*background-color: #471717;        */
+    background-color:rgba(40, 42, 40, 0.8)    ; /* Color de fondo con transparencia */
+    border: 2px solid #1B1B1C; /* Borde de 2px de color blanco */
+    border-radius: 5px;
+
+
+}
+/*
+#workspaces { 
+	margin: 1px 1px 2px 1px;
+    padding: 0px 2px 0px 2px;
+
+}*/
+/* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
+ #workspaces {
+	margin: 1px 1px 2px 1px;
+    padding: 0px 2px 0px 2px;
+    font-weight: bold;
+    font-style: normal;  
+}
+
+#workspaces button {
+    padding: 0px 1px;
+    margin: 0.1rem;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.4;
+}
+
+#workspaces button.active {
+    transition: all 0.3s ease-in-out;
+    opacity:1.0;
+}
+
+#workspaces button:hover {
+    opacity:0.7;
+}
+
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 5px;
+}
+#window {
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+	border-radius: 26px;
+	transition: none;
+	/*
+    color: #f8f8f2;
+	background: #282a36;
+    */
+    color: transparent;
+	background: transparent;
+}
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    
+}
+
+#workspaces button {
+    padding: 0 1px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+
+#workspaces button.focused {
+    background-color: black;
+
+}
+
+#custom-powermenu{
+    padding: 3px 3px;
+    color: #ff7056;  
+}
+#backlight{
+    padding: 0 3px;
+    color: #f3e746;   
+}
+
+#battery {
+    /*background-color: #ffffff;*/
+    color: #44ff6d;
+    font-size: 10px;
+    
+}
+
+#battery.warning {
+    color: rgba(255, 210, 4, 1);
+}
+
+#battery.critical {
+    color: rgba(238, 46, 36, 1);
+}
+
+#battery.charging {
+    color: rgba(217, 216, 216, 1);
+}
+
+#custom-launcher {
+    color: #E87154;
+    
+    padding: 0px 8px 0px 8px;
+    font-size: 20px;
+    /*background-color: #3B3B3A;
+    border-radius: 5px;
+    border: 2px solid #1B1B1C;*/
+}
+#clock,#custom-powermenu,#custom-search,#custom-menus{
+    font-size: 13px;
+    padding: 0 5px 0 5px;
+}
+#custom-search{
+    font-size: 12px;
+}
+#custom-menu{
+    font-size: 14px;
+}
+#tray{
+    margin: 0 5px 0 5px;
+}
+#custom-notification{
+    margin-right: 15px;
+    font-size: 13px;
+}
+#pulseaudio{
+    margin-right: 10px;
+}

@@ -1,0 +1,150 @@
+// __        __          _                 
+// \ \      / /_ _ _   _| |__   __ _ _ __  
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__| 
+//   \ V  V / (_| | |_| | |_) | (_| | |    
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    
+//                 |___/                   
+//  
+// by rkl18 (2024) 
+// ----------------------------------------------------- 
+//
+{
+    
+    "position": "bottom",
+    "layer": "bottom", // Waybar at top layer
+    "height": 10, // Waybar height (to be removed for auto height)
+    "spacing": 1, // Gaps between modules (4px)
+
+    "modules-left":   [],
+    "modules-center": ["custom/launcher","hyprland/workspaces" ],
+    "modules-right":  ["tray", "pulseaudio","battery", "clock","custom/notification"],
+
+    // Modules configuration
+    "hyprland/workspaces": {
+        "active-only": false,
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "default": "○",
+            "active":"●"
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": []
+        }
+      },
+
+    "cpu": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "{usage}% CPU"
+    },
+    "memory": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "{}% RAM used ({used}/{total} GB)"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "tooltip-format":"El brillo esta al {percent}%",
+        "format-icons": ["\u2600", "\u2600"]
+    },
+
+    "tray": { 
+        "spacing": 10,
+        "icon-size": 15
+        
+    },
+    "clock": {
+        "format": "{:%H:%M - %d %b }",
+        "format-alt":"{:%H:%M }"
+    },
+
+    "battery": {
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span> {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged", 
+        "format-alt":"<span font='Font Awesome 5 Free 11'>{icon}</span> ",   
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        }
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon}",
+        "icon-size": 10,
+        "format-bluetooth": "{icon} ",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": true,
+        "tooltip-format": "{icon} {volume}% {format_source}"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/launcher": {
+        "format": "⟑",
+        "on-click": "/home/joaquin/.config/rofi/menuLauncherEsquina.sh" 
+    },
+    "custom/powermenu": {
+        "format": " ",
+        "on-click": "/home/joaquin/.config/rofi/powermenu.sh",
+        "tooltip": false
+    },
+    "custom/menu": {
+        "format": "☰",
+        "on-click": "/home/joaquin/.config/rofi/powermenu.sh",
+        "tooltip": false
+    },
+    "custom/search": {
+        "format": "🔍",
+        "on-click": "/home/joaquin/.config/rofi/powermenu.sh",
+        "tooltip": false
+    },
+    "custom/notification": {
+        "format": "🔔"
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "icon-theme": "Flat-Remix-Violet-Dark",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    }
+    
+}
